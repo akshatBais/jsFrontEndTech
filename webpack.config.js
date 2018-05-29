@@ -1,4 +1,4 @@
-model.exports = {
+module.exports = {
   entry: './src/index.js',
   output: {
     path: __dirname + '/public',
@@ -8,7 +8,13 @@ model.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader',
+        query: {compact: true}
       }
     ]
   }
