@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 class App extends React.Component {
+
 state = {
   pageHeader : 'About',
   contests: this.props.initialContests

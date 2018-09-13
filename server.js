@@ -19,13 +19,14 @@ import serverRender from './serverRender';
 
 server.get('/',(req,res) => {
   serverRender()
-    .then(content => {
-      res.render('index', {
-        content: content
-      });
+  .then(content => {
+    res.render('index', {
+      content: content
     });
+  })
+  .catch(console.error)
 
-  //res.send("hello express");
+//res.send("hello express");
 });
 
 
