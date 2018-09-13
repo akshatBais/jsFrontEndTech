@@ -10,4 +10,4 @@ export default {
   }
 };
 
-console.log("here I am Akshat");
+console.log("here I am");
