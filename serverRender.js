@@ -11,7 +11,7 @@ const serverRender=() =>
         .then(resp => {
           console.log(resp.data);
           return ReactDOMServer.renderToString(
-            <App initialContests = {resp.data.contests}/>
+            <App initialContests = {resp.data.contests} />
           );
         });
 

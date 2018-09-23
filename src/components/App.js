@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from './Header';
-import ContestPreview from './ContestPreview';
-import axios from 'axios';
-
+import ContestList from './ContestList';
 
 class App extends React.Component {
 
@@ -13,25 +11,14 @@ state = {
 
 componentDidMount(){
   //axios : for ajax call to api.
-  axios.get('/api/contests')
-  .then(resp => {
-    console.log(resp);
-    this.setState({
-      contests: resp.data.contests });
-  })
-  .catch(console.error)
-
 }
 
 render() {
+  debugger;
   return (
     <div>
     <Header message={this.state.pageHeader} />
-      <div>
-        {this.state.contests.map(contest=>
-          <ContestPreview {...contest} />
-        )}
-      </div>
+    <ContestList contests={this.state.contests} />
     </div>
   );
 }

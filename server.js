@@ -16,6 +16,13 @@ server.use(sassMiddleWare({
 
 server.set('view engine','ejs');
 
+//An example of server rendering .
+//When javascript is disabled this will still get us the data . Useful during SEO
+//This gets the data from the api first
+//serverRender.then().catch()
+
+//Initially index.js is called and page is loaded with no data , later server rrender takes place and fills with data
+
 server.get('/',(req,res) => {
   serverRender()
   .then(content => {
@@ -28,6 +35,15 @@ server.get('/',(req,res) => {
 //res.send("hello express");
 });
 
+//To render from the api without server rendering and when JavaScript
+//is disabld this will fetch nothing. The index here is the index.ejs
+/*
+server.get('/', (req,res) => {
+  res.render('index', {
+    content : '...'
+  });
+});
+*/
 
 server.use('/api',apiRouter);
 server.use(express.static('public'));
